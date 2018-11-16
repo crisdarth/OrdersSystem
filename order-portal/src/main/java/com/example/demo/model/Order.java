@@ -34,6 +34,9 @@ public class Order {
 	
 	@Column
 	private String deliveryDate;
+	
+	@OneToMany(mappedBy = "order")
+    private List<OrderDetail> orderDetails;
 
 	public int getId() {
 		return id;
@@ -83,4 +86,12 @@ public class Order {
 		this.deliveryDate = deliveryDate;
 	}
 
+	public List<OrderDetail> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
+	
 }

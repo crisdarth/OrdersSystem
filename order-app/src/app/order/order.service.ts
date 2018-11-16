@@ -26,7 +26,7 @@ export class OrderService {
   }
 
   public getOrders() {
-    return this.http.get<Order[]>(this.orderUrl);
+    return this.http.get<Order[]>(this.orderUrl).pipe();
   }
 
   public deleteOrder(order) {
@@ -38,7 +38,7 @@ export class OrderService {
   }
 
   public updateOrder(order) {
-    return this.http.put<Order>(this.orderUrl, order);
+    return this.http.put<Order>(this.orderUrl+"/"+ order.id, order);
   }
 
   public getOrderById(id) {

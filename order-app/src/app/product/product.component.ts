@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Product } from '../models/product.model';
 import { ProductService } from './product.service';
+import { Observable } from '../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-product',
@@ -12,17 +13,16 @@ import { ProductService } from './product.service';
 export class ProductComponent implements OnInit {
 
   products: Product[];
-
+  
   constructor(private router: Router, private productService: ProductService) {
-
+    
   }
 
   ngOnInit() {
     this.productService.getProducts()
       .subscribe( data => {
-        this.products = data;
+        this.products = data['_embedded']['products'];
       });
-	  
   };
 
   deleteProduct(product: Product): void {

@@ -11,13 +11,11 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let orderDetail of orderDetails">
-    <td>{{orderDetail.id}}</td>
-    <td>{{orderDetail.product.name}}</td>
-    <td>{{orderDetail.quantity}}</td>
-    <!--<td>{{orderDetail.product.name}}</td>
-    <td>{{orderDetail.quantity}}</td>-->
-    <td><button class="btn btn-danger" (click)="deleteOrderDetail(orderDetail)"> Eliminar del pedido</button></td>
+  <tr *ngFor="let detail of orderDetails">
+    <td>{{detail.id}}</td>
+    <td>{{detail.quantity}}</td>
+    <!--<td>{{orderDetail.quantity}}</td>
+    <td><button class="btn btn-danger" (click)="deleteOrderDetail(orderDetail)"> Eliminar del pedido</button></td>-->
   </tr>
   </tbody>
 </table>

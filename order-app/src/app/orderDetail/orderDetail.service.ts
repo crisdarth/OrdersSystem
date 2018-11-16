@@ -11,30 +11,20 @@ const httpOptions = {
 @Injectable()
 export class OrderDetailService {
 
+  private orderDetailsUrl = 'http://localhost:8080/order-portal/orders';
+
   constructor(private http:HttpClient) {}
 
-  private orderDetailsUrl = 'http://localhost:8080/order-portal/orderDetails';
-
-  idTypes : IdType[] = [
-    {id:"CEDULA DE CIUDADANIA",name:"CEDULA DE CIUDADANIA"},
-    {id:"CEDULA DE EXTRANJERIA",name:"CEDULA DE EXTRANJERIA"},
-    {id:"NIT",name:"NIT"}
-  ];
-
-  public getIdTypes(){
-    return this.idTypes;
+  public getOrderDetails(orderId) {
+    return this.http.get<OrderDetail[]>(this.orderDetailsUrl+"/"+orderId+"/orderDetails").pipe();
   }
 
-  public getOrderDetails() {
-    return this.http.get<OrderDetail[]>(this.orderDetailsUrl);
-  }
-
-  public deleteOrderDetail(orderDetails) {
+  /*public deleteOrderDetail(orderDetails) {
     return this.http.delete(this.orderDetailsUrl + "/"+ orderDetails.id);
   }
 
   public createOrderDetail(orderDetails) {
     return this.http.post<OrderDetail>(this.orderDetailsUrl, orderDetails);
-  }
+  }*/
 
 }

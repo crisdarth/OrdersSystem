@@ -20,7 +20,7 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
     this.orderService.getOrders()
       .subscribe( data => {
-        this.orders = data;
+        this.orders = data['_embedded']['orders'];
       });
   };
 

@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Product } from '../models/product.model';
 import { ProductType } from '../models/productType.model';
+import { Observable } from '../../../node_modules/rxjs';
+import { tap } from 'rxjs/operators';
+import { TagPlaceholder } from '../../../node_modules/@angular/compiler/src/i18n/i18n_ast';
 
 
 const httpOptions = {
@@ -28,7 +31,7 @@ export class ProductService {
   private productUrl = 'http://localhost:8080/order-portal/products';
 
   public getProducts() {
-    return this.http.get<Product[]>(this.productUrl);
+    return this.http.get<Product[]>(this.productUrl).pipe();
   }
 
   public deleteProduct(product) {
@@ -40,7 +43,7 @@ export class ProductService {
   }
   
   public updateProduct(product) {
-    return this.http.put<Product>(this.productUrl, product);
+    return this.http.put<Product>(this.productUrl + "/"+ product.id, product);
   }
 
   public getProductById(id) {

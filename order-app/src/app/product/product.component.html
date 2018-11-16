@@ -4,18 +4,18 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th class="hidden">Id</th>
+    <th>Id</th>
     <th>Nombre</th>
     <th>Tipo de Producto</th>
     <th>Accion</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let product of products">
-    <td class="hidden">{{product.id}}</td>
+   <tr *ngFor="let product of products">
+    <td>{{product.id}}</td>
     <td><a routerLink="/product/{{product.id}}">{{product.name | uppercase}}</a></td>
     <td>{{product.productType}}</td>
     <td><button class="btn btn-danger" (click)="deleteProduct(product)"> Eliminar Producto</button></td>
-  </tr>
+  </tr> 
   </tbody>
 </table>
