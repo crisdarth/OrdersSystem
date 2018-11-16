@@ -1,13 +1,8 @@
 package com.example.demo.controller;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.Link;
-import org.springframework.hateoas.Resources;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Order;
 import com.example.demo.model.OrderDetail;
+import com.example.demo.service.OrderDetailService;
 import com.example.demo.service.OrderService;
-import com.example.hateoas.CustomerController;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -32,6 +27,9 @@ public class OrderController {
 
 	@Autowired
 	OrderService orderService;
+	
+	@Autowired
+	OrderDetailService orderDetailService;
 
 	@PostMapping
 	public Order create(@RequestBody Order order) {
@@ -60,17 +58,8 @@ public class OrderController {
 	}
 	
 	@GetMapping(path = {"/{id}/ordersDetails"})
-    public List<OrderDetail> getOrdersDetailsForOrder(@PathVariable("id") int id){
-    	List<OrderDetail> orders = orderService.getAllOrdersForCustomer(customerId);
-
-    	for(final Order order: orders) {
-    		Link selfLink = linkTo(methodOn(CustomerController.class).getOrderById(customerId, order.getOrderId())).withSelfRel();
-    		order.add(selfLink);
-    	}
-    	
-    	Link link = linkTo(methodOn(CustomerController.class).getOrdersForCustomer(customerId)).withSelfRel();
-    	Resources<Order> result = new Resources<>(orders, link);
-    	return result;
+    public List<OrderDetail> getOrdersDetailsByOrderId(@PathVariable("id") int id){
+		return orderDetailService.getOrdersDetailsByOrderId(id);
     }
 
 }

@@ -45,7 +45,7 @@ public class OrderDetailServiceImplementation implements OrderDetailService {
 	}
 	
 	@Override
-	public List<OrderDetail> getAllOrdersForCustomer(int orderId){
+	public List<OrderDetail> getOrdersDetailsByOrderId(int orderId){
 		return null;
 	}
 }

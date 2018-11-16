@@ -19,5 +19,5 @@ public interface OrderDetailService {
 	
 	OrderDetail update(OrderDetail orderDetail);
 	
-	List<OrderDetail> getAllOrdersForCustomer(int orderId);
+	List<OrderDetail> getOrdersDetailsByOrderId(int orderId);
 }
