@@ -1,0 +1,24 @@
+<div class="container-fluid">
+<div class="col-md-offset-1">
+  <h1>
+    Bienvenido a {{title}}
+  </h1>
+</div>
+
+<div class="detail">
+    <img src="{{company.imageUrl}}">
+    <div><b>Nombre:</b> {{company.name}}</div>
+    <div><b>Descripción:</b> {{company.description}}</div>
+    <div><b>Dirección:</b> {{company.address}}</div>
+    <div><b>Teléfono:</b> {{company.phone}}</div>
+    <div><b>Correo Electrónico:</b> {{company.email}}</div>
+</div>
+
+<a routerLink="/ordersList">Lista de pedidos</a>
+<a style="margin-left:10px" routerLink="/addOrder">Agregar Pedido</a>
+<a style="margin-left:10px" routerLink="/productsList">Lista de Productos</a>
+<a style="margin-left:10px" routerLink="/addProduct">Agregar Producto</a>
+<br/>
+<router-outlet></router-outlet>
+</div>
+

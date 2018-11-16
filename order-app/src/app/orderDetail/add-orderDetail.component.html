@@ -1,0 +1,12 @@
+<div class="col-md-6">
+  <h2 class="text-center">Agregar Producto</h2>
+
+  <div class="form-group">
+    <label for="deliveryAddress">Cantidad:</label>
+    <input [(ngModel)]="orderDetail.quantity" placeholder="Cantidad"
+      type="number" name="quantity" class="form-control" id="deliveryAddress">
+  </div>
+
+  <button class="btn btn-success" (click)="goBack()">Volver</button>
+  <button class="btn btn-success" (click)="createOrderDetail()">Agregar Producto</button>
+</div>

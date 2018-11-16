@@ -1,0 +1,41 @@
+<div class="col-md-6">
+  <h2 class="text-center">Agregar Pedido</h2>
+<form>
+  <div class="form-group">
+    <label for="customerName">Nombre del Cliente:</label>
+    <input [(ngModel)]="order.customerName" (ngModelChange)="setUppercaseName($event)"
+     placeholder="Nombre del Cliente" type="text" name="customerName" class="form-control" id="customerName">
+  </div>
+
+  <div class="form-group">
+    <label for="customerId">Identificacion del Cliente:</label>
+    <input [(ngModel)]="order.customerId" placeholder="Identificacion del Cliente" 
+      type="number" name="customerId" class="form-control" id="customerId">
+  </div>
+
+  <div class="form-group">
+      <label for="idType">Tipo Identificacion del Cliente:</label>
+      <select id="idType" name="idType" [(ngModel)]="order.customerIdType" class="form-control">
+        <option *ngFor="let idType of idTypes" [value]="idType.id">
+          {{idType.name}}
+        </option>
+      </select>
+  </div>
+
+  <div class="form-group">
+      <label for="deliveryAddress">Direccion de Entrega:</label>
+      <input [(ngModel)]="order.deliveryAddress" placeholder="Direccion de Entrega" name="deliveryAddress" class="form-control" id="deliveryAddress">
+  </div>
+
+  <div class="form-group">
+        <label for="deliveryDate">Fecha de Entrega:</label>
+        <input [(ngModel)]="order.deliveryDate" placeholder="Fecha de Entrega" 
+        type="datetime-local" name="deliveryDate" class="form-control" id="deliveryDate">
+  </div>
+
+  <button class="btn btn-success" [disabled]="isUnchanged" (click)="createOrder()">Crear Orden</button>
+  <button class="btn btn-success" [disabled]="!isUnchanged" (click)="addOrderDetailBtnClick()" >Agregar Producto</button>
+  
+  <app-orderDetail></app-orderDetail>
+</form>
+</div>

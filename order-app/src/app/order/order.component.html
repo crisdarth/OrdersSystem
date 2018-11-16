@@ -1,0 +1,25 @@
+<div class="col-md-6">
+<h2> Detalles del Pedido</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Nombre del Cliente</th>
+    <th>Direccion de Entrega</th>
+    <th>Fecha de Entrega</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of orders">
+    <td>{{order.id}}</td>
+    <td><a routerLink="/order/{{order.id}}">{{order.customerName | uppercase}}</a></td>
+    <td>{{order.deliveryAddress | uppercase}}</td>
+    <td>{{order.deliveryDate | date:"dd/MM/yyyy HH:mm:ss"}}</td>
+    <td><button class="btn btn-danger" (click)="deleteOrder(order)"> Eliminar Pedido</button></td>
+  </tr>
+  </tbody>
+</table>
+
+</div>

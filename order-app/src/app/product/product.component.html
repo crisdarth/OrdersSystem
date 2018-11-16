@@ -1,0 +1,21 @@
+<div class="col-md-6">
+<h2> Detalles del Producto</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th class="hidden">Id</th>
+    <th>Nombre</th>
+    <th>Tipo de Producto</th>
+    <th>Accion</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td class="hidden">{{product.id}}</td>
+    <td><a routerLink="/product/{{product.id}}">{{product.name | uppercase}}</a></td>
+    <td>{{product.productType}}</td>
+    <td><button class="btn btn-danger" (click)="deleteProduct(product)"> Eliminar Producto</button></td>
+  </tr>
+  </tbody>
+</table>

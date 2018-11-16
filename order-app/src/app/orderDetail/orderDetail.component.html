@@ -1,0 +1,24 @@
+<div class="col-md-6">
+<h2> Detalles del Pedido</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Nombre del Producto</th>
+    <th>Cantidad</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let orderDetail of orderDetails">
+    <td>{{orderDetail.id}}</td>
+    <td>{{orderDetail.product.name}}</td>
+    <td>{{orderDetail.quantity}}</td>
+    <!--<td>{{orderDetail.product.name}}</td>
+    <td>{{orderDetail.quantity}}</td>-->
+    <td><button class="btn btn-danger" (click)="deleteOrderDetail(orderDetail)"> Eliminar del pedido</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>

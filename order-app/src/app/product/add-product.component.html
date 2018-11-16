@@ -1,0 +1,28 @@
+<div class="col-md-6">
+  <h2 class="text-center">Agregar Producto</h2>
+<form>
+
+  <div class="form-group">
+    <label for="name">Nombre:</label>
+    <input [(ngModel)]="product.name" (ngModelChange)="setUppercaseName($event)"
+    placeholder="Nombre" name="name" class="form-control" id="name">
+  </div>
+
+  <div class="form-group">
+    <label for="productType">Tipo de Producto:</label>
+    <select id="productType" name="productType" [(ngModel)]="product.productType" class="form-control">
+      <option *ngFor="let prodType of productTypes" [value]="prodType.id">
+        {{prodType.name}}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+      <label for="unitPrice">Precio Unitario:</label>
+      <input [(ngModel)]="product.unitPrice" placeholder="Precio Unitario" 
+      type="number" name="unitPrice" class="form-control" id="unitPrice">
+  </div>
+
+  <button class="btn btn-success" (click)="createProduct()">Crear</button>
+</form>
+</div>
