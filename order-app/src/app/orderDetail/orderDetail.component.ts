@@ -19,13 +19,16 @@ export class OrderDetailComponent implements OnInit {
 
   ngOnInit() {
     const orderId = +this.route.snapshot.paramMap.get('id');
-    this.orderDetailService.getOrderDetails(orderId)
+    if(orderId!=null && orderId>0){
+      this.orderDetailService.getOrderDetails(orderId)
       .subscribe( data => {
-        this.orderDetails = data['_embedded']['orderDetails'];;
+        this.orderDetails = data['_embedded']['orderDetails'];
+        console.log(this.orderDetails);
       });
+    } 
   };
 
-  /*deleteOrderDetail(orderDetail: OrderDetail): void {
+  deleteOrderDetail(orderDetail: OrderDetail): void {
     if(confirm("Esta seguro que desea eliminar la orden número "+orderDetail.id+"?")) {
       this.orderDetailService.deleteOrderDetail(orderDetail)
       .subscribe( data => {
@@ -33,7 +36,7 @@ export class OrderDetailComponent implements OnInit {
       })
     }
     
-  };*/
+  };
 
 }
 

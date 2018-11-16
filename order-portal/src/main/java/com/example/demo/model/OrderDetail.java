@@ -21,6 +21,9 @@ public class OrderDetail {
 	@Column
 	private int quantity;
 	
+	@Column
+	private double subtotal;
+	
 	@ManyToOne
 	@JoinColumn(name = "order_id")
 	private Order order;
@@ -35,6 +38,14 @@ public class OrderDetail {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public double getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(double subtotal) {
+		this.subtotal = subtotal;
 	}
 
 	public int getQuantity() {

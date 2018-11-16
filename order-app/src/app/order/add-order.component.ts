@@ -21,10 +21,11 @@ export class AddOrderComponent {
 
   createOrder(): void {
     this.orderService.createOrder(this.order)
-        .subscribe( data => {
+        .subscribe( data => {this.order = data
           alert("Pedido creado satisfactoriamente.");
         });
         this.isUnchanged = true;  
+        
   };
 
   setUppercaseName(name: string) {
@@ -33,7 +34,7 @@ export class AddOrderComponent {
 
   addOrderDetailBtnClick= function () {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.router.navigateByUrl('/order/'+id+'/orderDetail');
+    this.router.navigateByUrl('/order/'+id+'/addOrderDetail');
   };
 
 }

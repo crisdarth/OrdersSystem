@@ -34,7 +34,9 @@
       </div>
     
       <button class="btn btn-success" (click)="saveOrder()">Guardar Orden</button>
-      <button class="btn btn-success" (click)="addOrderDetailBtnClick()" >Agregar Producto</button>
+      <div class="btn btn-success">
+          <a style="margin-left:10px" routerLink="/order/{{order.id}}/addOrderDetail">Agregar Pedido</a>
+        </div>
       
       <app-orderDetail></app-orderDetail>
     </form>

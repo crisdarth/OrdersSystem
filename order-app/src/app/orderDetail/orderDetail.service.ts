@@ -12,17 +12,18 @@ const httpOptions = {
 export class OrderDetailService {
 
   private orderDetailsUrl = 'http://localhost:8080/order-portal/orders';
+  private orderDetailsUrlDelete = 'http://localhost:8080/order-portal/orderDetails';
 
   constructor(private http:HttpClient) {}
 
   public getOrderDetails(orderId) {
-    return this.http.get<OrderDetail[]>(this.orderDetailsUrl+"/"+orderId+"/orderDetails").pipe();
+    return this.http.get<OrderDetail[]>(this.orderDetailsUrl+"/"+orderId+"/orderDetails/?projection=customOrderDetail").pipe();
   }
 
-  /*public deleteOrderDetail(orderDetails) {
-    return this.http.delete(this.orderDetailsUrl + "/"+ orderDetails.id);
+  public deleteOrderDetail(orderDetails) {
+    return this.http.delete(this.orderDetailsUrlDelete + "/"+ orderDetails.id);
   }
-
+/*
   public createOrderDetail(orderDetails) {
     return this.http.post<OrderDetail>(this.orderDetailsUrl, orderDetails);
   }*/

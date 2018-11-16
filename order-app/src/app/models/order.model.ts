@@ -6,4 +6,5 @@ export class Order {
   customerIdType: string;
   deliveryAddress: string;
   deliveryDate: string;
+  totalValue: number;
 }

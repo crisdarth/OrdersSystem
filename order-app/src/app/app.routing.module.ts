@@ -12,7 +12,7 @@ import { EditOrderComponent } from './order/edit-order.component';
 const routes: Routes = [
   { path: 'ordersList', component: OrderComponent },
   { path: 'addOrder', component: AddOrderComponent },
-  { path: 'order/:id/orderDetail', component: AddOrderDetailComponent },
+  { path: 'order/:id/addOrderDetail', component: AddOrderDetailComponent },
   { path: 'productsList', component: ProductComponent },
   { path: 'addProduct', component: AddProductComponent },
   { path: 'product/:id', component: EditProductComponent },

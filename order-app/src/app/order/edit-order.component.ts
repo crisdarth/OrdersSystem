@@ -46,6 +46,6 @@ export class EditOrderComponent implements OnInit {
 
   addOrderDetailBtnClick= function () {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.router.navigateByUrl('/order/'+id+'/orderDetail');
+    this.router.navigateByUrl('/order/'+id+'/addOrderDetail');
   }
 }

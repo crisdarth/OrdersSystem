@@ -35,6 +35,9 @@ public class Order {
 	@Column
 	private String deliveryDate;
 	
+	@Column
+	private double totalValue;
+	
 	@OneToMany(mappedBy = "order")
     private List<OrderDetail> orderDetails;
 
@@ -93,5 +96,13 @@ public class Order {
 	public void setOrderDetails(List<OrderDetail> orderDetails) {
 		this.orderDetails = orderDetails;
 	}
-	
+
+	public double getTotalValue() {
+		return totalValue;
+	}
+
+	public void setTotalValue(double totalValue) {
+		this.totalValue = totalValue;
+	}
+		
 }
