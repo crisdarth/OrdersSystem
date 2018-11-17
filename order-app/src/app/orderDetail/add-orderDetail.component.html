@@ -3,7 +3,7 @@
 
   <div class="form-group">
       <label for="productId">Producto:</label>
-      <select id="productId" name="productId" [(ngModel)]="orderDetail.product" class="form-control">
+      <select id="productId" name="productId" [(ngModel)]="productId" class="form-control">
         <option *ngFor="let product of products" [value]="product.id">
           {{product.name}}
         </option>

@@ -20,6 +20,8 @@ export class AddOrderDetailComponent {
   private location: Location;
   products: Product[];
   order: Order;
+  productId : number;
+  producto : Product;
 
   constructor(
     private router: Router, 
@@ -31,11 +33,9 @@ export class AddOrderDetailComponent {
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log("se hace el id "+id);
     this.orderService.getOrderById(id)
       .subscribe( data => {
         this.order = data;
-        console.log("se actualzia la orden con el id "+this.order.id);
       });
     this.productService.getProducts()
       .subscribe( data => {
@@ -43,13 +43,23 @@ export class AddOrderDetailComponent {
       });
   };
 
-  /*createOrderDetail(): void {
+  createOrderDetail(): void {
+    this.orderDetail.order = this.order;
+    console.log("esta es la orden del detalle "+this.orderDetail.order);
+    console.log("este es el ide del producto"+this.productId);
+    this.productService.getProductById(this.productId)
+      .subscribe( data => {
+        this.producto = data;
+        console.log("la data es"+data);  
+      });
+      console.log(this.producto);
+      this.orderDetail.product = this.producto;
     this.orderDetailService.createOrderDetail(this.orderDetail)
         .subscribe( data => {
           alert("El producto se ha agregado satisfactoriamente.");
         });
 
-  };*/
+  };
 
   goBack(): void {
     const id = +this.route.snapshot.paramMap.get('id');

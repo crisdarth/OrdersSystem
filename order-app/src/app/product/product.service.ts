@@ -17,7 +17,6 @@ export class ProductService {
 
   constructor(private http:HttpClient) {}
 
-  product: Product = new Product();
   productTypes : ProductType[] = [
     {id:"PANTALON FORMAL",name:"PANTALON FORMAL"},
     {id:"CAMISA FORMAL",name:"CAMISA FORMAL"},
@@ -47,7 +46,8 @@ export class ProductService {
   }
 
   public getProductById(id) {
-    return this.http.get<Product>(this.productUrl+"/"+id);
+    console.log("esta es la url del producto "+this.productUrl+"/"+id);
+    return this.http.get<Product>(this.productUrl+"/"+id).pipe();
   }
 
 }
